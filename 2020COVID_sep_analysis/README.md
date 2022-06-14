@@ -25,12 +25,10 @@ After the data sets loaded successfully, the next step is to preprocess the data
  - Filter unwanted outliers
  - Handle missing data
  - Validate
-### Join Data Sets
-`hosps`  from ./COVID-19_hospitalizations_by_date.csv
-`deaths`  from ./Count_of_deaths_with_COVID-19_by_date.csv
-`cases`  from ./COVID-19_case_counts_by_date.csv
 
 ### Ploting 
+After processing data, we can plot with data and look into the insight of the dataset.
+Following showing some of the plotted figures from the data sets. 
 
     hosps = hosps.reindex(cases.index) # Reindex so that the datasets have the same index.
 	hosps.plot()
@@ -39,22 +37,16 @@ After the data sets loaded successfully, the next step is to preprocess the data
 
     deaths = deaths.reindex(cases.index)
 	deaths.plot()
+	
 ![](Plot_Result/deaths.JPG)
  
 
     cases = cases.join([hosps, deaths])
     cases.plot()
+	
 ![](Plot_Result/cases.JPG)
-`Covid Data`
-![](Plot_Result/covid.JPG)
-    
-`COVID Frequency`
-![](Plot_Result/fre.JPG)
-`Deathrate Interpolated`
-![](Plot_Result/deathrate.JPG)
-`Rolling Week Mean`
-![](Plot_Result/rollingmean.JPG)
 
-![](Plot_Result/covid_data.JPG)
-`Most Correlated Covid Data`
+
+`Plotting Most Correlated Covid Data`
+
 ![](Plot_Result/correlated.JPG)
